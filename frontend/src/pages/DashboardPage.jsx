@@ -322,28 +322,24 @@ function DashboardPage({ theme, toggleTheme }) {
           </div>
         </header>
 
-        <section className="stats-grid">
-          <article className="stat-card">
-            <span>Total tasks</span>
-            <strong>{tasks.length}</strong>
-            <p>Everything currently in your workflow.</p>
-          </article>
-          <article className="stat-card">
-            <span>Pending</span>
-            <strong>{pendingCount}</strong>
-            <p>Tasks still waiting for action.</p>
-          </article>
-          <article className="stat-card">
-            <span>Completed</span>
-            <strong>{completedCount}</strong>
-            <p>Work you have already wrapped up.</p>
-          </article>
-          <article className="stat-card">
-            <span>Due soon</span>
-            <strong>{dueSoonCount}</strong>
-            <p>Pending tasks scheduled within the next 3 days.</p>
-          </article>
-        </section>
+        <div className="stats-container">
+          <div className="stat-chip">
+            <span className="stat-value">{tasks.length}</span>
+            <span className="stat-label">Total</span>
+          </div>
+          <div className="stat-chip">
+            <span className="stat-value">{pendingCount}</span>
+            <span className="stat-label">Pending</span>
+          </div>
+          <div className="stat-chip">
+            <span className="stat-value">{completedCount}</span>
+            <span className="stat-label">Completed</span>
+          </div>
+          <div className="stat-chip">
+            <span className="stat-value">{dueSoonCount}</span>
+            <span className="stat-label">Due Soon</span>
+          </div>
+        </div>
 
         {pageError ? <p className="form-message error">{pageError}</p> : null}
         {flashMessage ? <p className="form-message success">{flashMessage}</p> : null}
